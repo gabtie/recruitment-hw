@@ -28,6 +28,8 @@ Develop a DCDC converter with power monitoring:
     - Blink a LED, driven by a transistor, at a frequency between 3-5 Hz when the power at the input is greater than 10W
     - The LED should be off when power is below 3W
     - Use non programmable circuits
+    
+<img src="https://user-images.githubusercontent.com/64556568/200391668-f1a20344-d1ed-48c2-b3f5-f6b0fa3b0dc5.jpg" width="513">
 
  - In the schematic use also a hierarchical sheet
    - _It's not a good practice for this small of a project but it's for letting you learn about hierarchy without the hassle of a more complex assignment_
