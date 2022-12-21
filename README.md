@@ -1,4 +1,4 @@
-# Recuiting for E-Agle TRT (HW)
+# Recruitment for E-Agle TRT (HW)
 
 Welcome to the recruitment _test_ for the electronics team at E-Agle TRT.
 
@@ -14,7 +14,7 @@ Moreover it's studied so that the applicants get a first taste of the tools used
    - Schematic choices, tidyness and good practices
    - Board layout understanding and, again, good practices
  - `git` usage: fork, branch, clone, commit, push, pull
- - Not only _tecnically correct_ but also we'll evaluate if it's usable.
+ - Not only _tecnical correctness_ but we'll also evaluate actual usability.
 
 ## Assignment
 
@@ -40,11 +40,11 @@ Develop a DCDC converter with power monitoring:
 
 ## Instructions
 
- - Fork the repo
+ - Create a repository on your GitHub account and copy this project in it. **Do not clone this repository!**
  - Branch the master into one called `name_surname` where the work will be done
- - Commit your progress along the way
- - Open a pull request on `eagletrt/recruiting-hw`
+ - Commit your progress along the way. **Do not commit just the finished project**, use Git for what it's made for!
  - When you are done, generate the schematic output inside `docs/` and the production (gerber) files in `output/`
- - If you haven't already, submit the recruiting form [here](https://airtable.com/shrEDQJRgHh74MJKw)
+ - If you haven't already, submit the recruitment form [here](https://eagletrt.it/apply)
  - If you have any questions feel free to contact us at [electronics@eagletrt.it](mailto:electronics@eagletrt.it)
  - Feel free to also come to our lab (Povo2 floor -2) if we are slow at replying
+ - You have **2 weeks** (14 days) to work on this project (**we evaluate if you meet deadlines**)
