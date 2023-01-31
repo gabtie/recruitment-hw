@@ -18,16 +18,21 @@ Moreover it's studied so that the applicants get a first taste of the tools used
 
 ## Assignment
 
-Develop a DCDC converter with power monitoring:
+Develop an overtemperature and overcurrent monitoring system (monitor) to perform plauysibility checks of a secondary system (load).
 
- - Input voltage range: 11V-27V
- - Two outputs of:
-   - 5V3A
-   - 3.3V0.5A
- - Monitor the input current with a shunt
-    - Blink a LED, driven by a transistor, at a frequency between 3-5 Hz when the power at the input is greater than 10W
-    - The LED should be off when power is below 3W
-    - Use non programmable circuits
+The monitor has the following specs:
+- Supplied by an unstable DC voltage line, ranging from 9V to 17V
+- Has a normally open relay connected in series with the load
+- Has a hall effect sensor that measures the current througuh the load
+
+The monitor has the following specs:
+- Voltage range: 24V - 48V
+- Current range: -3A - 25A
+
+The primary system must monitor the power supplied by the secondary one and must ensure that the relay is open if the power is above 500W.
+Once open, it must not be possible to close the relay unless the system is power cycled.
+
+No programmable circuits are allowed.
     
 <img src="https://user-images.githubusercontent.com/64556568/200391668-f1a20344-d1ed-48c2-b3f5-f6b0fa3b0dc5.jpg" width="513">
 
@@ -44,7 +49,7 @@ Develop a DCDC converter with power monitoring:
  - Branch the master into one called `name_surname` where the work will be done
  - Commit your progress along the way. **Do not commit just the finished project**, use Git for what it's made for!
  - When you are done, generate the schematic output inside `docs/` and the production (gerber) files in `output/`
- - If you haven't already, submit the recruitment form [here](https://eagletrt.it/apply)
+ - If you haven't already, submit your application form [here](https://eagletrt.it/apply)
  - If you have any questions feel free to contact us at [electronics@eagletrt.it](mailto:electronics@eagletrt.it)
- - Feel free to also come to our lab (Povo2 floor -2) if we are slow at replying
+ - Feel free to also come to our lab (Povo 2 floor -2) if we are slow at replying
  - You have **2 weeks** (14 days) to work on this project (**we evaluate if you meet deadlines**)
