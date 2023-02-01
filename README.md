@@ -18,23 +18,29 @@ Moreover it's studied so that the applicants get a first taste of the tools used
 
 ## Assignment
 
-Develop an overtemperature and overcurrent monitoring system (monitor) to perform plauysibility checks of a secondary system (load).
+Develop an overtemperature and overcurrent monitoring system (**monitor**) to perform plauysibility checks of a secondary system (**load**).
 
-The monitor has the following specs:
+The **monitor** has the following specs:
 - Supplied by an unstable DC voltage line, ranging from 9V to 17V
 - Has a normally open relay connected in series with the load
 - Has a hall effect sensor that measures the current througuh the load
 
-The monitor has the following specs:
+The **load** has the following specs:
 - Voltage range: 24V - 48V
 - Current range: -3A - 25A
 
-The primary system must monitor the power supplied by the secondary one and must ensure that the relay is open if the power is above 500W.
+The **monitor** must check the power supplied to the **load** and must ensure that the relay is open if the power is above 500W.
 Once open, it must not be possible to close the relay unless the system is power cycled.
 
-No programmable circuits are allowed.
-    
-<img src="https://user-images.githubusercontent.com/64556568/200391668-f1a20344-d1ed-48c2-b3f5-f6b0fa3b0dc5.jpg" width="513">
+## COMPONENTS CONTRAIN
+
+- No programmable circuits are allowed.
+- The Hall effect based sensor can be choosen from the Allegro ACS781xLR family of devices. Other sensors may be suitable as long as they comply with the specs.
+
+Below you can find a general diagram of the system
+<img src=".\general diagram.png" width="400">
+
+
 
  - In the schematic use also a hierarchical sheet
    - _It's not a good practice for this small of a project but it's for letting you learn about hierarchy without the hassle of a more complex assignment_
