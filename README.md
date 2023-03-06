@@ -18,7 +18,7 @@ Moreover it's studied so that the applicants get a first taste of the tools used
 
 ## Assignment
 
-Develop an overtemperature and overcurrent monitoring system (**monitor**) to perform plauysibility checks of a secondary system (**load**).
+Develop an overcurrent monitoring system (**monitor**) to perform plauysibility checks of a secondary system (**load**).
 
 ### Overview
 The **monitor** has the following specs:
