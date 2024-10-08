@@ -1,0 +1,14 @@
+limite 500w
+
+24-48V quindi la corrente va
+
+20-10 A
+
+tensione sensore : 
+
+10 A => 2.5+10*0.04 = 2.9V
+20 A => 2.5+20*0.04 = 3.3V
+
+segnale sensore utile 2.9-3.3V e maggiori
+
+condiziono il segnale in modo che 2.9 
