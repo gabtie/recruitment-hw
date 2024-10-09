@@ -6,9 +6,29 @@ limite 500w
 
 tensione sensore : 
 
+5  A => 2.5+5*0.04 = 2.7V
 10 A => 2.5+10*0.04 = 2.9V
 20 A => 2.5+20*0.04 = 3.3V
 
-segnale sensore utile 2.9-3.3V e maggiori
+tralsiamo il segnale in modo che 5A = 0V e 20A = 3V
 
-condiziono il segnale in modo che 2.9 
+(segnale - 2.7) * 5
+
+5A  => 0V
+10A => 1V
+20A => 3V 
+
+
+P = V*I, però implementare un moltiplicatore hardware aggiunge molta complessità.
+Possiamo allora creare un comparatore che abbia ad ogni tensione di alimentazione una soglia di corrente massima
+
+Quindi devo fare in modo che 24V risultino in 3Volt di soglia e 48V in 1V di soglia.
+
+da 24-48 passiamo a 1-3Volt
+
+(4-vin)		 
+
+
+
+
+
