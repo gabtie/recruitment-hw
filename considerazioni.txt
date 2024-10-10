@@ -12,11 +12,11 @@ tensione sensore :
 
 tralsiamo il segnale in modo che 5A = 0V e 20A = 3V
 
-(segnale - 2.7) * 5
+(segnale - 2.7) * 7.5
 
 5A  => 0V
-10A => 1V
-20A => 3V 
+10A => 1.5V
+20A => 4.5V 
 
 
 P = V*I, però implementare un moltiplicatore hardware aggiunge molta complessità.
