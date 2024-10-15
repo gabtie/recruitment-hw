@@ -1,34 +1,35 @@
-limite 500w
+Pmax = 500w, VPower = [24-48]V, Imax = [500/24, 500/48]A = [20-10]A
 
-24-48V quindi la corrente va
+tensione sensore se alimentato a 5V Vout= Vcc/2+(0.04*Ip): 
 
-20-10 A
-
-tensione sensore : 
-
-5  A => 2.5+5*0.04 = 2.7V
-10 A => 2.5+10*0.04 = 2.9V
-20 A => 2.5+20*0.04 = 3.3V
-
-tralsiamo il segnale in modo che 5A = 0V e 20A = 3V
-
-(segnale - 2.7) * 7.5
-
-5A  => 0V
-10A => 1.5V
-20A => 4.5V 
+Vout(5)  = 2.5+(5*0.04)  = 2.7V
+Vout(10) = 2.5+(10*0.04) = 2.9V
+Vout(20) = 2.5+(20*0.04) = 3.3V
 
 
-P = V*I, però implementare un moltiplicatore hardware aggiunge molta complessità.
-Possiamo allora creare un comparatore che abbia ad ogni tensione di alimentazione una soglia di corrente massima
+Per calcolare la potenza dovremmo fare V*I, però implementare un moltiplicatore analogico aggiunge 
+complessità al progetto. Perciò posso lavorare in questo modo :
 
-Quindi devo fare in modo che 24V risultino in 3Volt di soglia e 48V in 1V di soglia.
-
-da 24-48 passiamo a 1-3Volt
-
-(4-vin)		 
+condiziono il segnale del sensore in modo che per Ip = 10A avro 3V e Ip = 20A avro 5V,
+condizione Vpower in modo che per Vpower = 24V avro 5V e Vpower = 48V avro 3V.
 
 
 
+tramite l'utilizzo del comparatore quando la corrente supera la soglia di tensione spengo il carico.
+
+Per spegnere il carico uso un latch S/R collegato ad un oppurtuna circuiteria mofset.
 
 
+
+Sensore Hall Allgero ACS780xLR: 
+Devo prendere il bidirezionale perche ho anche correnti negative, e l'unidirezionale non vuole corrente inverse.
+prendo quello nel mio range il più piccolo 50A bidirezionale.
+
+da datasheet ottengo i seguenti dati : 
+
+- consigliata capacità da 1uF tra Vout e massa.
+- corrente massima Iout : 2.5mA
+- sensibilità : 40mV * A
+- uscita quando l'ingresso è zero : VCC/2
+- errore di non linerarità : ±1%
+- errore di offset : 5mV
