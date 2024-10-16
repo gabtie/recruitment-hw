@@ -1,25 +1,4 @@
-Pmax = 500w, VPower = [24-48]V, Imax = [500/24, 500/48]A = [20-10]A
-
-tensione sensore se alimentato a 5V Vout= Vcc/2+(0.04*Ip): 
-
-Vout(5)  = 2.5+(5*0.04)  = 2.7V
-Vout(10) = 2.5+(10*0.04) = 2.9V
-Vout(20) = 2.5+(20*0.04) = 3.3V
-
-
-Per calcolare la potenza dovremmo fare V*I, però implementare un moltiplicatore analogico aggiunge 
-complessità al progetto. Perciò posso lavorare in questo modo :
-
-condiziono il segnale del sensore in modo che per Ip = 10A avro 3V e Ip = 20A avro 5V,
-condizione Vpower in modo che per Vpower = 24V avro 5V e Vpower = 48V avro 3V.
-
-
-
-tramite l'utilizzo del comparatore quando la corrente supera la soglia di tensione spengo il carico.
-
-Per spegnere il carico uso un latch S/R collegato ad un oppurtuna circuiteria mofset.
-
-
+Circuito :
 
 Sensore Hall Allgero ACS780xLR: 
 Devo prendere il bidirezionale perche ho anche correnti negative, e l'unidirezionale non vuole corrente inverse.
@@ -33,3 +12,40 @@ da datasheet ottengo i seguenti dati :
 - uscita quando l'ingresso è zero : VCC/2
 - errore di non linerarità : ±1%
 - errore di offset : 5mV
+
+
+Pmax = 500w, VPower = [24-48]V, Imax = [500/24, 500/48]A = [20-10]A
+
+tensione sensore se alimentato a 5V Vout= Vcc/2+(0.04*Ip): 
+
+Vout(5)  = 2.5+(5*0.04)  = 2.7V
+Vout(10) = 2.5+(10*0.04) = 2.9V
+Vout(20) = 2.5+(20*0.04) = 3.3V
+
+0.4*x=2
+
+Per calcolare la potenza dovremmo fare V*I, però implementare un moltiplicatore analogico aggiunge 
+complessità al progetto. Perciò posso lavorare in questo modo :
+
+condiziono il segnale del sensore in modo che per Ip = 10A avro 3V e Ip = 20A avro 5V,
+condizione Vpower in modo che per Vpower = 24V avro 5V e Vpower = 48V avro 3V.
+
+tramite l'utilizzo del comparatore quando la corrente supera la soglia di tensione spengo il carico.
+
+Per spegnere il carico uso un latch D/E collegato ad un oppurtuna circuiteria mofset.
+
+visto che la tensione minima VMonitor è 9 volt scelgo un rele con Vdc della bobina a 9V. visto che Vmonitor
+può arrivare fino a 17 volt tramite un mofset e un operazionale creò un regolatore di tensione.
+il regolatore viene spento o accesso tramite due bjt, si accende per V>0.6 e si spegne per V<0.5.
+Quindi bisogna controllare che la VLOW del latch D non sia mai superiore a 0.5 o avremo risultati inattesi.
+
+quando Vmonitor = 17V il mofset dissipa (17-9)*(135mA(corrente bobina)) = 1.25V, il package T0-220 ha 
+massimo 1watt di dissipazione quindi visto che il relé, da datasheet, si chiude per V>0.7Vbobina => 6.5V
+possiamo ridurre tramite trimmer la tensione della bobina.
+
+
+PCB:
+
+Le distanze minime tra le piste, la larghezza e l'altezza per le piste di potenza non sono controllate.
+
+
