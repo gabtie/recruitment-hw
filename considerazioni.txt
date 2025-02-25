@@ -9,6 +9,8 @@ da datasheet ottengo i seguenti dati :
 - consigliata capacità da 1uF tra Vout e massa.
 - corrente massima Iout : 2.5mA
 - sensibilità : 40mV * A
+
+
 - uscita quando l'ingresso è zero : VCC/2
 - errore di non linerarità : ±1%
 - errore di offset : 5mV
